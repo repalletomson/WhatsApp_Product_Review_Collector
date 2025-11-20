@@ -98,15 +98,12 @@ TWILIO_AUTH_TOKEN=your_auth_token
 
 6. **Run the backend**
 ```bash
-uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
+   py start_backend.py
 ```
 
 ### Frontend Setup
 
-1. **Navigate to frontend**
-```bash
-cd frontend
-```
+
 
 2. **Install dependencies**
 ```bash
@@ -115,7 +112,7 @@ npm install
 
 3. **Start development server**
 ```bash
-npm start
+py start_frontend.py
 ```
 
 ### Twilio WhatsApp Setup
