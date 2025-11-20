@@ -61,10 +61,7 @@ whatsapp-review-collector/
 
 ### Backend Setup
 
-1. **Clone and navigate to backend**
-```bash
-cd backend
-```
+
 
 2. **Create virtual environment**
 ```bash
@@ -75,10 +72,6 @@ venv\Scripts\activate
 source venv/bin/activate
 ```
 
-3. **Install dependencies**
-```bash
-pip install -r requirements.txt
-```
 
 4. **Setup PostgreSQL Database**
 ```sql
@@ -165,23 +158,48 @@ The UI uses a professional, modern color scheme:
 - **Background**: Clean whites and light grays
 - **Text**: Dark grays for excellent readability
 
-## Development Notes
+## Quick start scripts
 
-- Backend runs on port 8000
-- Frontend runs on port 3000
-- Database migrations handled automatically
-- CORS enabled for development
-- Error handling and validation included
+This repository includes small helper scripts to get the development servers running quickly:
 
-## Deployment
+- `start_backend.py` — creates/uses `backend/venv`, installs backend requirements, seeds demo data (if present), and runs the FastAPI server (uvicorn) on port 8000.
+- `start_frontend.py` — installs frontend deps if needed (`npm install`) and runs the React dev server on port 3000.
 
-For production deployment:
-1. Set up PostgreSQL database
-2. Configure environment variables
-3. Deploy backend (Railway, Heroku, etc.)
-4. Deploy frontend (Vercel, Netlify, etc.)
-5. Update Twilio webhook URL
+Run from the repository root. Examples (Windows PowerShell / CMD):
 
-## License
+```powershell
+py start_backend.py
+py start_frontend.py
+```
 
-MIT License
+Or with the `python` launcher on Unix-like systems:
+
+```bash
+python3 start_backend.py
+python3 start_frontend.py
+```
+
+There are also platform-native wrappers in the repo for convenience:
+- `start_backend.bat` / `start_frontend.bat` (Windows CMD)
+- `start_backend` / `start_frontend` (POSIX shell, usable in Git Bash / WSL / macOS / Linux)
+
+## Troubleshooting & notes
+
+- If you see a FileNotFoundError when the frontend script runs `npm`, Windows may require calling `npm.cmd` instead of `npm`. The included Python script handles that on modern Windows installs, but you can also run `npm start` directly from `frontend`.
+- Ensure Python 3.8+ and Node.js (with npm) are installed and available on your PATH. Verify with:
+
+```powershell
+py --version
+node --version
+npm --version
+```
+
+- If PowerShell blocks running local scripts, allow signed/local scripts for your user once:
+
+```powershell
+Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
+```
+
+- If you accidentally committed sensitive information (API keys, tokens), rotate those credentials immediately and follow GitHub's guidance for removing secrets from history (git-filter-repo or BFG) before pushing.
+
+If you'd like, I can add optional flags to the Python scripts (skip install, skip seeding, port override) or add `.ps1` wrappers for PowerShell. Tell me which you'd prefer and I will implement it.
