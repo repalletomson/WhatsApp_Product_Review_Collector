@@ -125,13 +125,7 @@ whatsapp-review-collector/
 └── .gitignore            # Git ignore rules
 ```
 
-## 🚀 **How to Run**
 
-### **Quick Start**
-1. **Backend**: Run `setup_project.bat` or follow manual setup in README
-2. **Frontend**: `cd frontend && npm install && npm start`
-3. **WhatsApp**: Configure Twilio webhook with ngrok URL
-4. **Test**: Send WhatsApp message to Twilio number
 
 ### **Live Demo**
 - **Frontend**: http://localhost:3000
@@ -163,6 +157,4 @@ whatsapp-review-collector/
 - Comprehensive error handling
 - Production deployment guides
 - Demo data for immediate testing
-
-**Time Invested**: ~2 days as specified
 **Result**: A unique, professional, production-ready WhatsApp review collection system
