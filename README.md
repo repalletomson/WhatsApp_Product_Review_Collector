@@ -88,25 +88,27 @@ DATABASE_URL=postgresql://username:password@localhost/whatsapp_reviews
 TWILIO_ACCOUNT_SID=your_account_sid
 TWILIO_AUTH_TOKEN=your_auth_token
 ```
+## Quick start scripts
 
-6. **Run the backend**
-```bash
-   py start_backend.py
-```
+This repository includes small helper scripts to get the development servers running quickly:
 
-### Frontend Setup
+- `start_backend.py` — creates/uses `backend/venv`, installs backend requirements, seeds demo data (if present), and runs the FastAPI server (uvicorn) on port 8000.
+- `start_frontend.py` — installs frontend deps if needed (`npm install`) and runs the React dev server on port 3000.
 
+Run from the repository root. Examples (Windows PowerShell / CMD):
 
-
-2. **Install dependencies**
-```bash
-npm install
-```
-
-3. **Start development server**
-```bash
+```powershell
+py start_backend.py
 py start_frontend.py
 ```
+
+Or with the `python` launcher on Unix-like systems:
+
+```bash
+python3 start_backend.py
+python3 start_frontend.py
+```
+
 
 ### Twilio WhatsApp Setup
 
@@ -158,30 +160,6 @@ The UI uses a professional, modern color scheme:
 - **Background**: Clean whites and light grays
 - **Text**: Dark grays for excellent readability
 
-## Quick start scripts
-
-This repository includes small helper scripts to get the development servers running quickly:
-
-- `start_backend.py` — creates/uses `backend/venv`, installs backend requirements, seeds demo data (if present), and runs the FastAPI server (uvicorn) on port 8000.
-- `start_frontend.py` — installs frontend deps if needed (`npm install`) and runs the React dev server on port 3000.
-
-Run from the repository root. Examples (Windows PowerShell / CMD):
-
-```powershell
-py start_backend.py
-py start_frontend.py
-```
-
-Or with the `python` launcher on Unix-like systems:
-
-```bash
-python3 start_backend.py
-python3 start_frontend.py
-```
-
-There are also platform-native wrappers in the repo for convenience:
-- `start_backend.bat` / `start_frontend.bat` (Windows CMD)
-- `start_backend` / `start_frontend` (POSIX shell, usable in Git Bash / WSL / macOS / Linux)
 
 ## Troubleshooting & notes
 
@@ -194,11 +172,6 @@ node --version
 npm --version
 ```
 
-- If PowerShell blocks running local scripts, allow signed/local scripts for your user once:
-
-```powershell
-Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
-```
 
 - If you accidentally committed sensitive information (API keys, tokens), rotate those credentials immediately and follow GitHub's guidance for removing secrets from history (git-filter-repo or BFG) before pushing.
 
