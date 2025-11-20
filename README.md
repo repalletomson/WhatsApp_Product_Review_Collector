@@ -2,6 +2,8 @@
 
 A full-stack application that collects product reviews via WhatsApp and displays them in a modern React dashboard.
 
+## **QUICK DEMO VIDEO **
+LINK : https://www.loom.com/share/f83a4074e5304ea194e38b21b95970cf
 ## 🎯 **Assignment Overview**
 
 This project implements a complete WhatsApp-based product review collection system as specified in the requirements:
